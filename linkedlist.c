@@ -15,11 +15,17 @@ void print_list(struct node *demon){
   }
 }
 
-struct node * insert_front(struct node * newnode, int newlemon){
-  newnode->lemon = newlemon;
-  newnode = newnode -> next;
-  return newnode;
+struct node * insert_front(struct node * demon, int newlemon){
+  struct node newnode;
+
+  newnode.lemon = newlemon;
+
+  newnode.next = demon;
+  
+  demon = &newnode;
+  return demon;
 }
+  //newnode->lemon = newlemon;
 
 struct node * free_list(struct node * next);
 
