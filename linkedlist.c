@@ -1,32 +1,43 @@
 #include <stdio.h>
+#include <string.h>
+
 struct node {int lemon; struct node *next; };
 
 
 void print_list(struct node *demon){
-  printf("My demons have %d many lemons\n", demon->lemon);
+  printf("My demon has %d many lemons\n", demon->lemon);
 
+  int c = 0;
+  while(demon){
+    printf("My %d demon has: %d lemons\n",c,demon->lemon);
+    demon = demon-> next;
+    c++;
+  }
 }
 
+struct node * insert_front(struct node * newnode, int newlemon){
+  newnode->lemon = newlemon;
+  newnode = newnode -> next;
+  return newnode;
+}
 
-
-struct node * insert_front(struct node *, int);
-
-struct node * free_list(struct node *);
+struct node * free_list(struct node * next);
 
 int main(){
-  struct node *test1;
-  struct node *test2;
-  struct node *test3;
+  struct node test1;
+  struct node test2;
+  struct node test3;
 
-  test1->lemon = 2;
-  test1->next = test2;
-  test2->lemon = 3;
-  test2->next = test3;
-  test3->lemon = 7;
-  test3->next = NULL;
-
-  print_list(test1);
-  print_list(test2);
-  print_list(test3);
-
+  struct node *linked = &test1;
+  test1.next = &test2;
+  test1.lemon = 122;
+  test2.next = &test3;
+  test2.lemon = 14122;
+  test3.next = NULL;
+  test3.lemon = 121422;
+  print_list(linked);
+  printf("--------------------------------------------------\n");
+  insert_front(linked ,12);
+  print_list(linked);
+  return 0;
 }
