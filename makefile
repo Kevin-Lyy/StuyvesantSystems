@@ -1,8 +1,8 @@
-all: list.o
-	gcc -o hello list.o
+all: linkedlist.o
+	gcc -o hello linkedlist.o
 
-list.o:list.c
-	gcc -c list.c
+linkedlist.o:linkedlist.c
+	gcc -c linkedlist.c
 
 run:
 	./hello

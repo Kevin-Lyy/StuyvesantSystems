@@ -6,7 +6,6 @@ struct node {int lemon; struct node *next; };
 
 
 void print_list(struct node *demon){
-
   int c = 0;
   while(demon){
     printf("My %d demon has: %d lemons\n",c,demon->lemon);
@@ -25,4 +24,6 @@ struct node * insert_front(struct node * demon, int newlemon){
   return newlinked;
 }
 
-struct node * free_list(struct node * next);
+struct node * free_list(struct node * needfree){
+  return needfree;
+}
