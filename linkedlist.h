@@ -25,5 +25,11 @@ struct node * insert_front(struct node * demon, int newlemon){
 }
 
 struct node * free_list(struct node * needfree){
+  struct node *tempnode;
+  while(needfree){
+     tempnode = needfree;
+     needfree = needfree->next;
+     free(tempnode);
+  }
   return needfree;
 }
