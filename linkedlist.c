@@ -26,7 +26,7 @@ int main(){
   printf("\n");
   print_list(newlinked);
   printf("\n");
-  free_list(linked);
+  linked = free_list(linked);
   print_list(linked);
   printf("-----------------------------------------------------------\n");
 
