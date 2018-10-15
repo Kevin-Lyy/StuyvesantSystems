@@ -1,33 +1,29 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
 #include "linkedlist.h"
 
 int main(){
-  struct node test1;
-  struct node test2;
-  struct node test3;
+  struct node *test = NULL;
 
-  struct node *linked = &test1;
-  test1.next = &test2;
-  test1.lemon = 1;
-  test2.next = &test3;
-  test2.lemon = 2;
-  test3.next = NULL;
-  test3.lemon = 3;
-  printf("-----------------------------------------------------------\n");
-  printf("Test print_list \n");
-  print_list(linked);
   printf("-----------------------------------------------------------\n");
   printf("Test insert_front\n");
-  struct node * newlinked;
-  newlinked = insert_front(linked ,0);
-  print_list(newlinked);
+  test = insert_front(test,1);
+  print_list(test);
+  printf("\n");
+  test = insert_front(test,2);
+  print_list(test);
+  printf("\n");
+  test = insert_front(test,3);
+  print_list(test);
+  printf("\n");
+
   printf("-----------------------------------------------------------\n");
-  printf("Test free_list\n");
-  print_list(linked);
-  printf("\n");
-  print_list(newlinked);
-  printf("\n");
-  linked = free_list(linked);
-  print_list(linked);
+
+  test = free_list(test);
+  print_list(test);
+  printf("freed list %p\n",test);
+
   printf("-----------------------------------------------------------\n");
 
   return 0;
