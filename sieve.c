@@ -43,7 +43,7 @@ int sieve(int nth){
   }
 }
 
-
+/*
 int main(){
 
   printf("test 40\n");
@@ -60,3 +60,4 @@ int main(){
 
   return 0;
 }
+*/
