@@ -10,7 +10,7 @@
 int getrand(){
   int randata  = open("/dev/urandom", O_RDONLY );
   int rand;
-  int buffboi = read(randata,&rand,size(rand);
+  int buffboi = read(randata,&rand,sizeof(rand));
   close(randata);
 
   return rand;
@@ -23,7 +23,7 @@ int main() {
   int * randarry = malloc(10 * sizeof(int));
   int c = 0;
   for(;c < 10;c++){
-    randarray[c] = getrand();
+    randarry[c] = getrand();
   }
 
   for(c = 0;c < 10;c++){
