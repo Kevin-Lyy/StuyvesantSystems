@@ -7,14 +7,13 @@
 #include <unistd.h>
 
 
-int * getrand(int * randarr){
+int getrand(){
   int randata  = open("/dev/urandom", O_RDONLY );
-  int c = 0;
-  for(;c<10;c++){
-    read(randata, &randarr[c], sizeof(int));
-  }
+  int rand;
+  int buffboi = read(randata,&rand,size(rand);
   close(randata);
-  return randarr;
+
+  return rand;
 }
 
 
@@ -22,9 +21,12 @@ int main() {
 
   char* filename = "rand.txt";
   int * randarry = malloc(10 * sizeof(int));
-  getrand(randarry);
   int c = 0;
   for(;c < 10;c++){
+    randarray[c] = getrand();
+  }
+
+  for(c = 0;c < 10;c++){
     printf("%d : %d \n",c,randarry[c]);
   }
 
