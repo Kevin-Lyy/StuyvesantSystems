@@ -22,9 +22,9 @@ void whileverboi(){
   }
 }
 
-static void intorecieve(){
+static void intoreceive(int put){
   checkerrno();
-  char * filename = "recieve.txt";
+  char * filename = "receive.txt";
 
 
   exit(0);
@@ -32,8 +32,8 @@ static void intorecieve(){
 
 
 int main (){
-  signal(SIGINT,intorecieve);
-  signal(SIGUSR1,intorecieve);
+  signal(SIGINT,intoreceive);
+  signal(SIGUSR1,intoreceive);
 
   whileverboi();
 
