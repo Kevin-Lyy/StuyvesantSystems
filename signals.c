@@ -25,9 +25,20 @@ void whileverboi(){
 static void intoreceive(int put){
   checkerrno();
   char * filename = "receive.txt";
+  
+  if(put == SIGINT){
+    int textboi = open(filename, O_WRONLY | O_APPEND);
+    write(textboi, “end cause SIGINT”,strlen(“end cause SIGINT”));
+    close(textboi);
+    printf(“check file for end, SIGINT”);
+    exit(0);
+  }
 
+  if(put == SIGUAR1){
+    printf(“parent pid %d\n”,getppid());
 
-  exit(0);
+  }
+
 }
 
 
