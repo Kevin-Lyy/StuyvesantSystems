@@ -24,7 +24,7 @@ static void intoreceive(int put){
   checkerrno();
   char * filename = "receive.txt";
   
-  if(put == SIGUAR1){
+  if(put == SIGUSR1){
     printf("parent pid %d\n",getppid());
   }
 
