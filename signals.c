@@ -8,41 +8,40 @@
 
 void checkerrno(){
   if(errno != 0){
-    printf("error %d, %s\n",errno,strerror(errno));
+    printf("Error %d, %s\n",errno,strerror(errno));
     exit(0);
   }
 }
 
 void whileverboi(){
   while(666){
-    printf("pid%d\n",getpid());
+    printf("Pid %d\n",getpid());
     sleep(1);
   }
 }
 
-static void intoreceive(int put){
+static void signalhandler(int put){
   checkerrno();
-  char * filename = "receive.txt";
-  
+  char * filename = "recieve.txt";
+
   if(put == SIGUSR1){
-    printf("parent pid %d\n",getppid());
+    printf("Parent pid %d\n",getppid());
   }
 
   if(put == SIGINT){
     int textboi = open(filename, O_WRONLY | O_APPEND);
-    write(textboi, "end cause SIGINT",strlen("end cause SIGINT"));
+    write(textboi, "Ended cause of SIGINT",strlen("Ended cause of SIGINT"));
     close(textboi);
-    printf("check file for end, SIGINT");
+    printf("check file for end, SIGINT \n");
     exit(0);
   }
-
 
 }
 
 
 int main (){
-  signal(SIGINT,intoreceive);
-  signal(SIGUSR1,intoreceive);
+  signal(SIGINT,signalhandler);
+  signal(SIGUSR1,signalhandler);
 
   whileverboi();
 
