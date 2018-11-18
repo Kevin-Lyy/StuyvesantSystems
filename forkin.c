@@ -27,29 +27,36 @@ int main(){
 
   printf("some initial message \n");
   int f = fork();
+  int waitboi;
+
   if(f==-1) {
     printf("error\n");
   }
- if(f){
-  if(f) {
-   // waitpid(-1,&status,0);
+
+  if(f){
+    wait(%waitboi);
     printf("Parent %i \n",getpid());
-
+    printf("my child: %i",cpid());
     printf("that the parent is done \n");
-  }
-  else {
-    printf("pid child 1: %i \n", getpid());
-    sleep(rand);
-    printf("a message that it is finished\n");
-  }
-}
-else{
-    printf("pid child 2: %i \n",getpid());
-sleep(rand);
-printf("another message that is finished \n");
-}
+    exit();
+    if(f) {
+      wait(%waitboi);
+      printf("my child: %i",cpid());
+    }
+    else {
+      printf("pid child 1: %i \n", getpid());
 
-return 0;
+      sleep(rand);
+      printf("a message that it is finished\n");
+    }
+  }
+  else{
+    printf("pid child 2: %i \n",getpid());
+    sleep(rand);
+    printf("another message that is finished \n");
+  }
+
+  return 0;
 }
 
 
@@ -64,8 +71,10 @@ At the end print a message that it is finished
 Parent process instructions
 Before forking, print out some initial message
 After the fork, wait for any child to finish
-Once a child has finished, print out the pid of the completed child as well as how many seconds it was asleep for.
-Do not run any kind of timer, think about how the child could send this information back to the parent.
+Once a child has finished, print out the pid of the completed child
+as well as how many seconds it was asleep for.
+Do not run any kind of timer, think about how the child could
+send this information back to the parent.
 Print a message that the parent is done and then end the program
 The other child might still be running, that's ok.
 */
