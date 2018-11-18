@@ -21,45 +21,55 @@ int getrand(){
 
 
 int main(){
-  int rand = getrand()%20;
-  if(rand < 5){rand+=5;}
-  int status = 0;
-
+  int status;
   printf("some initial message \n");
-  int f = fork();
-  int waitboi;
+  int parentpid = getpid();
+
+  if(fork())
+  f = fork();
 
   if(f==-1) {
     printf("error\n");
   }
 
+  if(getpid() != parentpid){
+    printf("child pid: %i \n", getpid());
+
+    int rand = getrand()%20;
+    if(rand < 5){rand+=5;}
+
+    sleep(rand);
+    int file = open("info.txt", O_CREAT | O_RDWR);
+    if (file == -1)
+     printf("%s\n", strerror(file));
+
+    int w = write(file,&rand,sizeof(rand));
+    if(w = -1)
+      printf("%s\n", strerror(file));
+
+    printf("a message that it is finished\n");
+    exit(0);
+  }
+
   if(f){
-   wait(NULL);
+    wait(NULL);
     printf("Child pid: %i\n",f);
-    printf("time elasped: \n");
+    int timesleep;
+
+    int file = open("info.txt", O_RDWR);
+    if (file == -1)
+     printf("%s\n", strerror(file));
+
+    int r = read(file,&timesleep,sizeof(int));
+    printf("time elasped: %d\n",timesleep);
     printf("that the parent is done \n");
     exit(0);
-
-    if(f) {
-     //wait(&waitboi);
-     // printf("my child: %i",cpid());
-    }
-    else {
-      printf("pid child 1: %i \n", getpid());
-      sleep(rand);
-      printf("a message that it is finished\n");
-      exit(0);
-    }
   }
-  else{
-    printf("pid child 2: %i \n",getpid());
-    sleep(rand);
-    printf("another message that is finished \n");
-    exit(0);
- }
 
   return 0;
 }
+
+
 
 
 /*
