@@ -34,27 +34,29 @@ int main(){
   }
 
   if(f){
-    wait(%waitboi);
-    printf("Parent %i \n",getpid());
-    printf("my child: %i",cpid());
+   wait(NULL);
+    printf("Child pid: %i\n",f);
+    printf("time elasped: \n");
     printf("that the parent is done \n");
-    exit();
+    exit(0);
+
     if(f) {
-      wait(%waitboi);
-      printf("my child: %i",cpid());
+     //wait(&waitboi);
+     // printf("my child: %i",cpid());
     }
     else {
       printf("pid child 1: %i \n", getpid());
-
       sleep(rand);
       printf("a message that it is finished\n");
+      exit(0);
     }
   }
   else{
     printf("pid child 2: %i \n",getpid());
     sleep(rand);
     printf("another message that is finished \n");
-  }
+    exit(0);
+ }
 
   return 0;
 }
