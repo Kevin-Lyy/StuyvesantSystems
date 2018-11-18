@@ -22,21 +22,32 @@ int getrand(){
 
 int main(){
   int rand = getrand()%20;
+  if(rand < 5){rand+=5;}
+  int status = 0;
 
   printf("some initial message \n");
   int f = fork();
   if(f==-1) {
     printf("error\n");
   }
-  else if(f) {
-    waitpid(-1,&status,0);
-    printf("dad \n",getpid());
+ if(f){
+  if(f) {
+   // waitpid(-1,&status,0);
+    printf("Parent %i \n",getpid());
+
+    printf("that the parent is done \n");
   }
   else {
-    printf("pid: %i \n", getpid());
+    printf("pid child 1: %i \n", getpid());
     sleep(rand);
-    printf("a message that it is finished");
+    printf("a message that it is finished\n");
   }
+}
+else{
+    printf("pid child 2: %i \n",getpid());
+sleep(rand);
+printf("another message that is finished \n");
+}
 
 return 0;
 }
