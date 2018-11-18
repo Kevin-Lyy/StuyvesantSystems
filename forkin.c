@@ -46,8 +46,6 @@ int main(){
      printf("%s\n", strerror(file));
 
     int w = write(file,&rand,sizeof(rand));
-    if(w = -1)
-      printf("%s\n", strerror(file));
 
     printf("a message that it is finished\n \n");
     exit(0);
