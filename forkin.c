@@ -22,7 +22,7 @@ int getrand(){
 
 int main(){
   int status;
-  printf("some initial message \n");
+  printf("\nSome initial message \n \n");
   int parentpid = getpid();
 
   int f = fork();
@@ -49,13 +49,13 @@ int main(){
     if(w = -1)
       printf("%s\n", strerror(file));
 
-    printf("a message that it is finished\n");
+    printf("a message that it is finished\n \n");
     exit(0);
   }
 
   if(f){
     wait(NULL);
-    printf("Child pid: %i\n",f);
+    printf("my favoite child's pid: %i\n",f);
     int timesleep;
 
     int file = open("info.txt", O_RDWR);
@@ -63,7 +63,7 @@ int main(){
      printf("%s\n", strerror(file));
 
     int r = read(file,&timesleep,sizeof(int));
-    printf("time elasped: %d\n",timesleep);
+    printf("Time elasped: %d\n",timesleep);
     printf("that the parent is done \n");
     exit(0);
   }
