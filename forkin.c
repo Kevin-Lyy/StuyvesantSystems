@@ -25,8 +25,10 @@ int main(){
   printf("some initial message \n");
   int parentpid = getpid();
 
-  if(fork())
-  f = fork();
+  int f = fork();
+
+  if(f)
+    fork();
 
   if(f==-1) {
     printf("error\n");
