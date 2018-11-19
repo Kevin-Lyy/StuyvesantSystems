@@ -53,7 +53,7 @@ int main(){
 
   if(f){
     wait(NULL);
-    printf("my favoite child's pid: %i\n",f);
+    printf("my favorite child's pid: %i\n",f);
     int timesleep;
 
     int file = open("info.txt", O_RDWR);
