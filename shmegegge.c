@@ -18,7 +18,7 @@ int main(int argc, char *argv[]){
   printf("Segment was just created!\n");
 
 
-  while(1){
+
     printf("Would you like to change the data? \n");
 
     char path[100];
@@ -45,12 +45,11 @@ int main(int argc, char *argv[]){
 
       if(!strcmp(path,"yes")){
         printf("deleted\n");
-        break;
       }
       else{
         printf("Shared memory: %s \n",data);
       }
-    }
+
 
   }
 
