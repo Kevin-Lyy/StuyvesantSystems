@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
         break;
       }
       else{
-        printf("bacc \n");
+        printf("Shared memory: %s \n",data);
       }
     }
 
